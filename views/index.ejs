@@ -6,19 +6,36 @@
     <title>Cypto Project</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-    <body class="bg-black">
-        <header class="container mx-auto h-screen flex justify-center items-start pt-3">
-            <h1 class="text-4xl font-bold underline p-6 border-3 border-white text-white">Crypto Project</h1>
-        </header>
+<body class="bg-black min-h-screen flex flex-col">
 
-        <main>
-        </main>
+    <header class="container mx-auto flex justify-center items-start pt-3 pb-6">
+        <h1 class="text-4xl font-bold underline p-6 border-3 border-white text-white">Crypto Project</h1>
+    </header>
 
-        <footer>
-            <div class="container mx-auto flex justify-center items-center p-6">
-                <p class="text-white font-bold">© 2025 Crypto Project. All rights reserved.</p>
-            </div>
-        </footer>
+    <main class="flex-grow">
+        <div class="container mx-auto flex justify-center items-center p-6">
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4" onclick="window.location.href='/coins'" title="Check the first 10 coins">
+                Check available coins.
+            </button>
+        </div>
 
-    </body>
+        <div class="container mx-auto flex justify-center items-center p-6 border-3 border-red-500">
+            <% if (typeof coins !== 'undefined') { %>
+                <ul class="text-white">
+                    <% coins.slice(0, 10).forEach(coin => { %>
+                        <li><%= coin.name %> (<%= coin.symbol %>)</li>
+                    <% }); %>
+                </ul>
+            <% } %>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container mx-auto flex justify-center items-center p-6">
+            <p class="text-white font-bold">© 2025 Crypto Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
